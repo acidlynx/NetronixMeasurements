@@ -1,0 +1,713 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0919AD4136441899AB0111ADCE72A88F /* Pods-NetronixApplication-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 605D1689871AD7EC55874E0CB4C9AF3F /* Pods-NetronixApplication-dummy.m */; };
+		288B76632C63F85F6BB7208478192A51 /* Pods-NetronixApplicationTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF18EF2FA38B59F5EA43415EB2AAEA0 /* Pods-NetronixApplicationTests-dummy.m */; };
+		335112D3E629F575ED395C721BB1ADFE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		76917501107E20AE755E3476971B0609 /* EventSource-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E686275623AC7CC037ABB1049BAFA109 /* EventSource-dummy.m */; };
+		8215CAF7E5E92243ECFCCF294D8719FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		8B164D5FB04AE9F94327BA732486E0C1 /* Pods-NetronixApplicationUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EE6AC4A7F9155C454A6B229CF6B3AB1E /* Pods-NetronixApplicationUITests-dummy.m */; };
+		9ED7DB3A5D4F1CE9718A7F8E99715EB1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		C34363BF9CDC0C026B2D7776C805D53B /* EventSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 655A62E463849BDD942EF8C80B0A971F /* EventSource.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		D2C2C412612FA0E7A57741FB6C80CAAD /* EventSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 79E5661BBC9316D69571AA3290597BEC /* EventSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ECE9C158EED724FE226BEFE51221C67D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D72FA81DA3A4DFEE94E59D9316A695D8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0F0EE2FBEBD7B0E72A2D994E76B3554C;
+			remoteInfo = EventSource;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0887A5B5BE40E453CA1FF26203C30DDB /* Pods-NetronixApplication-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NetronixApplication-acknowledgements.plist"; sourceTree = "<group>"; };
+		0950F02E6C41658614262AACB45C45C4 /* Pods-NetronixApplicationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NetronixApplicationTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1BEAA5C80392019D16556302052F281C /* Pods-NetronixApplicationUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-NetronixApplicationUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		2EF052397496D7038A95423AA46E049E /* libEventSource.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libEventSource.a; path = libEventSource.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		33D3B291A696588C1858B5690EC40577 /* Pods-NetronixApplicationTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NetronixApplicationTests-resources.sh"; sourceTree = "<group>"; };
+		45BFCB7621899C6756EA5D0483FF22D9 /* Pods-NetronixApplicationUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NetronixApplicationUITests-resources.sh"; sourceTree = "<group>"; };
+		4F777EFF9A9D6A28D59553D4C148C5E2 /* Pods-NetronixApplicationUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NetronixApplicationUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		552E983F3669CE9A4819EA224493040A /* libPods-NetronixApplicationUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-NetronixApplicationUITests.a"; path = "libPods-NetronixApplicationUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		605D1689871AD7EC55874E0CB4C9AF3F /* Pods-NetronixApplication-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-NetronixApplication-dummy.m"; sourceTree = "<group>"; };
+		655A62E463849BDD942EF8C80B0A971F /* EventSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EventSource.m; path = EventSource/EventSource.m; sourceTree = "<group>"; };
+		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		68715D28D337B77F4E2D4BBDB9C3FE05 /* Pods-NetronixApplicationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NetronixApplicationTests.release.xcconfig"; sourceTree = "<group>"; };
+		70EF11507BABA3583FA905D13CA3FCCF /* Pods-NetronixApplicationTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NetronixApplicationTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		7584B2F8C3DBDA5DD2F9F824AE2CCD7F /* Pods-NetronixApplication-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NetronixApplication-resources.sh"; sourceTree = "<group>"; };
+		79E5661BBC9316D69571AA3290597BEC /* EventSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EventSource.h; path = EventSource/EventSource.h; sourceTree = "<group>"; };
+		7CFA9E29FEDD97B4188B5FA644B25CA3 /* Pods-NetronixApplicationUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NetronixApplicationUITests-frameworks.sh"; sourceTree = "<group>"; };
+		8044850DAAD0A77AF703024C697B2FCB /* libPods-NetronixApplication.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-NetronixApplication.a"; path = "libPods-NetronixApplication.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		83EEE8EFEBD7C491AD3ADCBB9722371C /* Pods-NetronixApplicationTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NetronixApplicationTests-frameworks.sh"; sourceTree = "<group>"; };
+		866716EF50EF065773FF6C4064B4A602 /* Pods-NetronixApplication.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NetronixApplication.debug.xcconfig"; sourceTree = "<group>"; };
+		8D0551B547D6831BBC598EC171C77A3E /* libPods-NetronixApplicationTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-NetronixApplicationTests.a"; path = "libPods-NetronixApplicationTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A99E6F4CBBF2BC0FF62391AFB921FFCA /* Pods-NetronixApplicationUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NetronixApplicationUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		ADD7118AB5CEBA8BEB91A8F6132DC175 /* EventSource-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "EventSource-prefix.pch"; sourceTree = "<group>"; };
+		B986F50B21E689CD8D1D18823D75CC7F /* Pods-NetronixApplication-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-NetronixApplication-acknowledgements.markdown"; sourceTree = "<group>"; };
+		C68D156F949B3244B7E3BDE0C01EE485 /* Pods-NetronixApplicationTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-NetronixApplicationTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		CA584FCAFD1CBE90D2A182B1AA22B549 /* EventSource.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = EventSource.xcconfig; sourceTree = "<group>"; };
+		CD33895CCD3AACD59BB6D5DAA57A5A38 /* Pods-NetronixApplicationUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NetronixApplicationUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E47B218B454CDE7685E5C7E0FE89E22E /* Pods-NetronixApplication.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NetronixApplication.release.xcconfig"; sourceTree = "<group>"; };
+		E686275623AC7CC037ABB1049BAFA109 /* EventSource-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "EventSource-dummy.m"; sourceTree = "<group>"; };
+		ECF18EF2FA38B59F5EA43415EB2AAEA0 /* Pods-NetronixApplicationTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-NetronixApplicationTests-dummy.m"; sourceTree = "<group>"; };
+		EE6AC4A7F9155C454A6B229CF6B3AB1E /* Pods-NetronixApplicationUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-NetronixApplicationUITests-dummy.m"; sourceTree = "<group>"; };
+		F9A3D3845D21F4A5219D3202D2FE5A95 /* Pods-NetronixApplication-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NetronixApplication-frameworks.sh"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		13045631141D0ED66147DC8DC75197D9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8215CAF7E5E92243ECFCCF294D8719FE /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		296BACC499929369B8089C3DA84F468C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				335112D3E629F575ED395C721BB1ADFE /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E8AEBCF7C34A0B7028F7215872CD1BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9ED7DB3A5D4F1CE9718A7F8E99715EB1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAC567A0DDF0EF97CC3C2873D97BF842 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECE9C158EED724FE226BEFE51221C67D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2A49A92711B0E08D208EB7C0CB4E8B53 /* Pods-NetronixApplicationTests */ = {
+			isa = PBXGroup;
+			children = (
+				C68D156F949B3244B7E3BDE0C01EE485 /* Pods-NetronixApplicationTests-acknowledgements.markdown */,
+				70EF11507BABA3583FA905D13CA3FCCF /* Pods-NetronixApplicationTests-acknowledgements.plist */,
+				ECF18EF2FA38B59F5EA43415EB2AAEA0 /* Pods-NetronixApplicationTests-dummy.m */,
+				83EEE8EFEBD7C491AD3ADCBB9722371C /* Pods-NetronixApplicationTests-frameworks.sh */,
+				33D3B291A696588C1858B5690EC40577 /* Pods-NetronixApplicationTests-resources.sh */,
+				0950F02E6C41658614262AACB45C45C4 /* Pods-NetronixApplicationTests.debug.xcconfig */,
+				68715D28D337B77F4E2D4BBDB9C3FE05 /* Pods-NetronixApplicationTests.release.xcconfig */,
+			);
+			name = "Pods-NetronixApplicationTests";
+			path = "Target Support Files/Pods-NetronixApplicationTests";
+			sourceTree = "<group>";
+		};
+		390A50C6C2DA351DFBDF44A33E778956 /* EventSource */ = {
+			isa = PBXGroup;
+			children = (
+				79E5661BBC9316D69571AA3290597BEC /* EventSource.h */,
+				655A62E463849BDD942EF8C80B0A971F /* EventSource.m */,
+				44875406BB24A227A8886F9F6C512741 /* Support Files */,
+			);
+			name = EventSource;
+			path = EventSource;
+			sourceTree = "<group>";
+		};
+		44875406BB24A227A8886F9F6C512741 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				CA584FCAFD1CBE90D2A182B1AA22B549 /* EventSource.xcconfig */,
+				E686275623AC7CC037ABB1049BAFA109 /* EventSource-dummy.m */,
+				ADD7118AB5CEBA8BEB91A8F6132DC175 /* EventSource-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/EventSource";
+			sourceTree = "<group>";
+		};
+		52912E4D3B6CC9D06206D6AF60F06EAA /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				9E595054F5ABC0D389DA1E8299511060 /* Pods-NetronixApplication */,
+				2A49A92711B0E08D208EB7C0CB4E8B53 /* Pods-NetronixApplicationTests */,
+				B5AC1E182992896643C90D99C2BE97E9 /* Pods-NetronixApplicationUITests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				FF192EFB67C80C05CF67F2EE190273EC /* Pods */,
+				83A170930C7427CD9571A4F1FC742DB6 /* Products */,
+				52912E4D3B6CC9D06206D6AF60F06EAA /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		83A170930C7427CD9571A4F1FC742DB6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2EF052397496D7038A95423AA46E049E /* libEventSource.a */,
+				8044850DAAD0A77AF703024C697B2FCB /* libPods-NetronixApplication.a */,
+				8D0551B547D6831BBC598EC171C77A3E /* libPods-NetronixApplicationTests.a */,
+				552E983F3669CE9A4819EA224493040A /* libPods-NetronixApplicationUITests.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9E595054F5ABC0D389DA1E8299511060 /* Pods-NetronixApplication */ = {
+			isa = PBXGroup;
+			children = (
+				B986F50B21E689CD8D1D18823D75CC7F /* Pods-NetronixApplication-acknowledgements.markdown */,
+				0887A5B5BE40E453CA1FF26203C30DDB /* Pods-NetronixApplication-acknowledgements.plist */,
+				605D1689871AD7EC55874E0CB4C9AF3F /* Pods-NetronixApplication-dummy.m */,
+				F9A3D3845D21F4A5219D3202D2FE5A95 /* Pods-NetronixApplication-frameworks.sh */,
+				7584B2F8C3DBDA5DD2F9F824AE2CCD7F /* Pods-NetronixApplication-resources.sh */,
+				866716EF50EF065773FF6C4064B4A602 /* Pods-NetronixApplication.debug.xcconfig */,
+				E47B218B454CDE7685E5C7E0FE89E22E /* Pods-NetronixApplication.release.xcconfig */,
+			);
+			name = "Pods-NetronixApplication";
+			path = "Target Support Files/Pods-NetronixApplication";
+			sourceTree = "<group>";
+		};
+		B5AC1E182992896643C90D99C2BE97E9 /* Pods-NetronixApplicationUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1BEAA5C80392019D16556302052F281C /* Pods-NetronixApplicationUITests-acknowledgements.markdown */,
+				4F777EFF9A9D6A28D59553D4C148C5E2 /* Pods-NetronixApplicationUITests-acknowledgements.plist */,
+				EE6AC4A7F9155C454A6B229CF6B3AB1E /* Pods-NetronixApplicationUITests-dummy.m */,
+				7CFA9E29FEDD97B4188B5FA644B25CA3 /* Pods-NetronixApplicationUITests-frameworks.sh */,
+				45BFCB7621899C6756EA5D0483FF22D9 /* Pods-NetronixApplicationUITests-resources.sh */,
+				A99E6F4CBBF2BC0FF62391AFB921FFCA /* Pods-NetronixApplicationUITests.debug.xcconfig */,
+				CD33895CCD3AACD59BB6D5DAA57A5A38 /* Pods-NetronixApplicationUITests.release.xcconfig */,
+			);
+			name = "Pods-NetronixApplicationUITests";
+			path = "Target Support Files/Pods-NetronixApplicationUITests";
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		FF192EFB67C80C05CF67F2EE190273EC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				390A50C6C2DA351DFBDF44A33E778956 /* EventSource */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		831A6A7CC372A24981B5A1090B149554 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2C2C412612FA0E7A57741FB6C80CAAD /* EventSource.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		0F0EE2FBEBD7B0E72A2D994E76B3554C /* EventSource */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 281F2167BC95B26AB75C966116F2FE7B /* Build configuration list for PBXNativeTarget "EventSource" */;
+			buildPhases = (
+				DFBC467E768DF7158FC8F8B8FD166679 /* Sources */,
+				13045631141D0ED66147DC8DC75197D9 /* Frameworks */,
+				831A6A7CC372A24981B5A1090B149554 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EventSource;
+			productName = EventSource;
+			productReference = 2EF052397496D7038A95423AA46E049E /* libEventSource.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		29D6493EE108C63CB2AA149AF9E5F3FB /* Pods-NetronixApplication */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2B3EAA09BD45913BCD25FFB5C5166291 /* Build configuration list for PBXNativeTarget "Pods-NetronixApplication" */;
+			buildPhases = (
+				8EC6CAD50D1317AFF294402DE30622C9 /* Sources */,
+				296BACC499929369B8089C3DA84F468C /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				49256489863D1C2F7DF2A4AA2098AA52 /* PBXTargetDependency */,
+			);
+			name = "Pods-NetronixApplication";
+			productName = "Pods-NetronixApplication";
+			productReference = 8044850DAAD0A77AF703024C697B2FCB /* libPods-NetronixApplication.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		30335C387BCCE90F5007C314E0C256A2 /* Pods-NetronixApplicationTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B77DC74D1C2B8768F6ADC8C35081F223 /* Build configuration list for PBXNativeTarget "Pods-NetronixApplicationTests" */;
+			buildPhases = (
+				80C77D7100F8843CC8B8D1773C4D5184 /* Sources */,
+				6E8AEBCF7C34A0B7028F7215872CD1BF /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-NetronixApplicationTests";
+			productName = "Pods-NetronixApplicationTests";
+			productReference = 8D0551B547D6831BBC598EC171C77A3E /* libPods-NetronixApplicationTests.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		6A8FEEB4DC080C8BA7701378E5706F1D /* Pods-NetronixApplicationUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9CC119D165A710CE56E8336237AAEF63 /* Build configuration list for PBXNativeTarget "Pods-NetronixApplicationUITests" */;
+			buildPhases = (
+				906C4A5805B24222426A7BE3F61A1FB1 /* Sources */,
+				AAC567A0DDF0EF97CC3C2873D97BF842 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-NetronixApplicationUITests";
+			productName = "Pods-NetronixApplicationUITests";
+			productReference = 552E983F3669CE9A4819EA224493040A /* libPods-NetronixApplicationUITests.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 83A170930C7427CD9571A4F1FC742DB6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0F0EE2FBEBD7B0E72A2D994E76B3554C /* EventSource */,
+				29D6493EE108C63CB2AA149AF9E5F3FB /* Pods-NetronixApplication */,
+				30335C387BCCE90F5007C314E0C256A2 /* Pods-NetronixApplicationTests */,
+				6A8FEEB4DC080C8BA7701378E5706F1D /* Pods-NetronixApplicationUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		80C77D7100F8843CC8B8D1773C4D5184 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				288B76632C63F85F6BB7208478192A51 /* Pods-NetronixApplicationTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8EC6CAD50D1317AFF294402DE30622C9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0919AD4136441899AB0111ADCE72A88F /* Pods-NetronixApplication-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		906C4A5805B24222426A7BE3F61A1FB1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B164D5FB04AE9F94327BA732486E0C1 /* Pods-NetronixApplicationUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DFBC467E768DF7158FC8F8B8FD166679 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				76917501107E20AE755E3476971B0609 /* EventSource-dummy.m in Sources */,
+				C34363BF9CDC0C026B2D7776C805D53B /* EventSource.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		49256489863D1C2F7DF2A4AA2098AA52 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = EventSource;
+			target = 0F0EE2FBEBD7B0E72A2D994E76B3554C /* EventSource */;
+			targetProxy = D72FA81DA3A4DFEE94E59D9316A695D8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		00B3077864E339AB29FD59D25471D6BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A99E6F4CBBF2BC0FF62391AFB921FFCA /* Pods-NetronixApplicationUITests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		030FE99BBD4195328E8574598ACB41FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E47B218B454CDE7685E5C7E0FE89E22E /* Pods-NetronixApplication.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		17514683A1D47B06BB6C7279D2B6C8D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD33895CCD3AACD59BB6D5DAA57A5A38 /* Pods-NetronixApplicationUITests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		33DA7F43A1D2FA3C74A8C8FC246E1FA6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		42B97BE942B19F618BB43B539758869E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 866716EF50EF065773FF6C4064B4A602 /* Pods-NetronixApplication.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4D3A4911785A354BF0C2322DBB9B5634 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 68715D28D337B77F4E2D4BBDB9C3FE05 /* Pods-NetronixApplicationTests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		731DC216E1A58545B559F6E0A2418060 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		AAAC61CDCE51E155103CE36914DA6723 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0950F02E6C41658614262AACB45C45C4 /* Pods-NetronixApplicationTests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C5F37BF63DACCD5A2B94F7CBC5A3EC7F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA584FCAFD1CBE90D2A182B1AA22B549 /* EventSource.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/EventSource/EventSource-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CBE1307AE5EC1A11B65B773CB7E945CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA584FCAFD1CBE90D2A182B1AA22B549 /* EventSource.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/EventSource/EventSource-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		281F2167BC95B26AB75C966116F2FE7B /* Build configuration list for PBXNativeTarget "EventSource" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C5F37BF63DACCD5A2B94F7CBC5A3EC7F /* Debug */,
+				CBE1307AE5EC1A11B65B773CB7E945CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2B3EAA09BD45913BCD25FFB5C5166291 /* Build configuration list for PBXNativeTarget "Pods-NetronixApplication" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				42B97BE942B19F618BB43B539758869E /* Debug */,
+				030FE99BBD4195328E8574598ACB41FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33DA7F43A1D2FA3C74A8C8FC246E1FA6 /* Debug */,
+				731DC216E1A58545B559F6E0A2418060 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9CC119D165A710CE56E8336237AAEF63 /* Build configuration list for PBXNativeTarget "Pods-NetronixApplicationUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00B3077864E339AB29FD59D25471D6BA /* Debug */,
+				17514683A1D47B06BB6C7279D2B6C8D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B77DC74D1C2B8768F6ADC8C35081F223 /* Build configuration list for PBXNativeTarget "Pods-NetronixApplicationTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAAC61CDCE51E155103CE36914DA6723 /* Debug */,
+				4D3A4911785A354BF0C2322DBB9B5634 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
