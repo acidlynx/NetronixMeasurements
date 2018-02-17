@@ -8,3 +8,6 @@ Test application for Netronix job application
 # How to check
 * Download
 * Build
+
+# 3rd party libraries
+* https://github.com/neilco/EventSource Copyright (c) 2013 Neil Cowburn (http://github.com/neilco/) MIT License

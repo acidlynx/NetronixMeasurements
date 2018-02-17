@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 
+#import <EventSource.h>
+
 @interface ViewController ()
 
 @end
@@ -17,6 +19,27 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+	
+	NSURL *serverURL = [NSURL URLWithString:@"https://jsdemo.envdev.io/sse"];
+	EventSource *source = [EventSource eventSourceWithURL:serverURL];
+	
+	[source onOpen:^(Event *event) {
+		NSLog(@"onOpen");
+	}];
+
+	[source onError:^(Event *event) {
+		NSLog(@"onError: %@", event);
+	}];
+	
+	[source onReadyStateChanged:^(Event *event) {
+		NSLog(@"onReadyStateChanged: %@", event);
+	}];
+	
+	
+	[source onMessage:^(Event *event) {
+//		NSLog(@"%@: %@\n\n", e.event, e.data);
+		
+	}];
 }
 
 - (void)didReceiveMemoryWarning {
