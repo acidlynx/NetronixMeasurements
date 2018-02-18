@@ -36,13 +36,17 @@
 						NSArray *measurementsArray  = (NSArray *) eventDictionary[@"measurements"];
 						
 						if (measurementsArray && [measurementsArray isKindOfClass:[NSArray class]]) {
-							[self convertTimeSerieToMeasurementObjectsFromEventDictionary:eventDictionary];
+							ILMeasurement *measurement = [self convertTimeSerieToMeasurementObjectsFromEventDictionary:eventDictionary];
+							
+							
+							measurement = nil;
+							event = nil;
 						} else {
 							[self convertTimeSerieToMeasurementObjectsFromEventDictionary:eventDictionary];
-							NSLog(@"Error: no \"measurements\" array in timeserie %@", eventDictionary);
+							NSLog(@"ERROR. No \"measurements\" array in timeserie %@", eventDictionary);
 						}
 					} else {
-						NSLog(@"eventDictionary: %@", eventDictionary);
+						NSLog(@"ERROR. Wrong format of event: %@", eventDictionary);
 					}
 				}
 			}
@@ -56,12 +60,70 @@
 }
 
 #pragma mark - Private messages
--(void) convertTimeSerieToMeasurementObjectsFromEventDictionary: (NSDictionary *) eventDictionary {
-	NSArray *measurementsArray  = (NSArray *) eventDictionary[@"measurements"];
+
+
+
+-(ILMeasurement *) convertTimeSerieToMeasurementObjectsFromEventDictionary: (NSDictionary *) eventDictionary {
+	NSArray *measurementsArray = (NSArray *) eventDictionary[@"measurements"];
 	if (measurementsArray.count > 0) {
-//		for (NSDictionary *measurementDictionary in measurementsArray) {
-//			
-//		}
+		for (NSArray *singleMeasurementArray in measurementsArray) {
+			if ([singleMeasurementArray isKindOfClass:[NSArray class]]) {
+				ILMeasurement *measurementObject = [[ILMeasurement alloc] init];
+				
+				NSString *measurementTimeSerieIdString = eventDictionary[@"_id"];
+				if (measurementTimeSerieIdString &&
+					[measurementTimeSerieIdString isKindOfClass:[NSString class]] &&
+					(measurementTimeSerieIdString.length > 0)) {
+					measurementObject.timeSerieIdString = measurementTimeSerieIdString;
+				}
+				
+				NSString *measurementNameString = eventDictionary[@"name"];
+				if (measurementNameString &&
+					[measurementNameString isKindOfClass:[NSString class]] &&
+					(measurementNameString.length > 0)) {
+					measurementObject.nameString = measurementNameString;
+				}
+				
+				NSString *unitString = eventDictionary[@"unit"];
+				if (unitString &&
+					[unitString isKindOfClass:[NSString class]] &&
+					(unitString.length > 0)) {
+					measurementObject.unitString = unitString;
+				}
+				
+				if ((singleMeasurementArray.count >= 1) && singleMeasurementArray[0]) {
+					// expect epoch date
+					NSNumber *epochDateNumber = singleMeasurementArray[0];
+					if (epochDateNumber &&
+						[epochDateNumber isKindOfClass:[NSNumber class]]) {
+						measurementObject.date = [NSDate dateWithTimeIntervalSince1970:[epochDateNumber integerValue]];
+					}
+				}
+				
+				if ((singleMeasurementArray.count >= 2) && singleMeasurementArray[1]) {
+					id valueObject = singleMeasurementArray[1];
+					if (valueObject && [valueObject isKindOfClass:[NSNumber class]]) {
+						// single number value
+						measurementObject.valueString = [((NSNumber *) valueObject) stringValue];
+					} else if (valueObject && [valueObject isKindOfClass:[NSString class]]) {
+						measurementObject.valueString = (NSString *) valueObject;
+					} else if (valueObject && [valueObject isKindOfClass:[NSArray class]]) {
+						NSArray *valueArray = (NSArray *) valueObject;
+						
+						if (valueArray.count == 2) {
+							measurementObject.valueArray = valueArray;
+						} else {
+							measurementObject.valueArray = valueArray;
+							NSLog(@"ERROR. Unexpected array from measurement: %@", measurementObject);
+							return measurementObject;
+						}
+					}
+				}
+				
+				NSLog(@"%@", measurementObject);
+				return measurementObject;
+			}
+		}
 	} else {
 		ILMeasurement *measurementObject = [[ILMeasurement alloc] init];
 		
@@ -86,10 +148,11 @@
 			measurementObject.unitString = unitString;
 		}
 		
-		measurementObject.valueString = @"";
-		
-		NSLog(@"empty measurement: %@", measurementObject);
+		NSLog(@"ERROR. Empty measurement: %@", measurementObject);
+		return measurementObject;
 	}
+	
+	return nil;
 }
 
 @end

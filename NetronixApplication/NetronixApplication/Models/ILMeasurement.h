@@ -15,7 +15,6 @@
 @property (nullable) NSDate		*date;
 @property (nullable) NSString	*unitString;
 @property (nullable) NSString	*valueString;
-@property (nullable) NSString	*locationLatitudeString;
-@property (nullable) NSString	*locationLongitudeString;
+@property (nullable) NSArray	*valueArray;
 
 @end
