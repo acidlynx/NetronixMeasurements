@@ -11,6 +11,10 @@
 #import <EventSource.h>
 #import "ILMeasurement.h"
 
+static NSString *errorDomainString = @"test.domain.error";
+
+typedef void (^ILConverTimeSerieBlock)(ILMeasurement *measurementObject, NSError *errorObject);
+
 @implementation ViewController
 
 - (void)viewDidLoad {
@@ -33,18 +37,15 @@
 			if (eventsArray && [eventsArray isKindOfClass:[NSArray class]] && (eventsArray.count > 0)) {
 				for (NSDictionary *eventDictionary in eventsArray) {
 					if (eventDictionary && [eventDictionary isKindOfClass:[NSDictionary class]]) {
-						NSArray *measurementsArray  = (NSArray *) eventDictionary[@"measurements"];
-						
-						if (measurementsArray && [measurementsArray isKindOfClass:[NSArray class]]) {
-							ILMeasurement *measurement = [self convertTimeSerieToMeasurementObjectsFromEventDictionary:eventDictionary];
+						[self convertTimeSerieFromEventDictionary:eventDictionary withBlock:^(ILMeasurement *measurementObject, NSError *errorObject) {
 							
+							if (errorObject) {
+								NSLog(@"ERROR: %@", errorObject.localizedDescription);
+							}
 							
-							measurement = nil;
-							event = nil;
-						} else {
-							[self convertTimeSerieToMeasurementObjectsFromEventDictionary:eventDictionary];
-							NSLog(@"ERROR. No \"measurements\" array in timeserie %@", eventDictionary);
-						}
+//							NSLog(@"measurement: %@", measurementObject);
+							
+						}];
 					} else {
 						NSLog(@"ERROR. Wrong format of event: %@", eventDictionary);
 					}
@@ -61,11 +62,11 @@
 
 #pragma mark - Private messages
 
-
-
--(ILMeasurement *) convertTimeSerieToMeasurementObjectsFromEventDictionary: (NSDictionary *) eventDictionary {
+-(void) convertTimeSerieFromEventDictionary: (NSDictionary *) eventDictionary withBlock: (ILConverTimeSerieBlock) returnBlock {
 	NSArray *measurementsArray = (NSArray *) eventDictionary[@"measurements"];
-	if (measurementsArray.count > 0) {
+	if (measurementsArray &&
+		[measurementsArray isKindOfClass:[NSArray class]] &&
+		(measurementsArray.count > 0)) {
 		for (NSArray *singleMeasurementArray in measurementsArray) {
 			if ([singleMeasurementArray isKindOfClass:[NSArray class]]) {
 				ILMeasurement *measurementObject = [[ILMeasurement alloc] init];
@@ -114,14 +115,14 @@
 							measurementObject.valueArray = valueArray;
 						} else {
 							measurementObject.valueArray = valueArray;
-							NSLog(@"ERROR. Unexpected array from measurement: %@", measurementObject);
-							return measurementObject;
+							NSError *error = [NSError errorWithDomain:errorDomainString code:101 userInfo:@{NSLocalizedDescriptionKey: @"Unexpected array"}];
+							
+							returnBlock(measurementObject, error);
 						}
 					}
 				}
 				
-				NSLog(@"%@", measurementObject);
-				return measurementObject;
+				returnBlock(measurementObject, nil);
 			}
 		}
 	} else {
@@ -147,12 +148,10 @@
 			(unitString.length > 0)) {
 			measurementObject.unitString = unitString;
 		}
-		
-		NSLog(@"ERROR. Empty measurement: %@", measurementObject);
-		return measurementObject;
-	}
+		NSError *error = [NSError errorWithDomain:errorDomainString code:102 userInfo:@{NSLocalizedDescriptionKey: @"Empty measurement"}];
 	
-	return nil;
+		returnBlock(measurementObject, error);
+	}
 }
 
 @end
