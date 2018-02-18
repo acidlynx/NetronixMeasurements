@@ -15,7 +15,7 @@ Red cell means data is not correct and you need to check corresponging sensor.
 # 3rd party libraries
 * https://github.com/neilco/EventSource Copyright (c) 2013 Neil Cowburn (http://github.com/neilco/) MIT License
 
-# Known troubles
+# Known issues
 * Some repeated code (ILMeasurement object creation)
 * No tests
 * Not optimized UITableView inserting (just reloadData). It can increase memory consuption
