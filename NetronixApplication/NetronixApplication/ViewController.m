@@ -12,6 +12,7 @@
 #import "ILMeasurement.h"
 
 static NSString *errorDomainString = @"test.domain.error";
+static NSString *cellIdentifierString = @"measurementTableViewCellIdentifier";
 
 typedef void (^ILConverTimeSerieBlock)(ILMeasurement *measurementObject, NSError *errorObject);
 
@@ -19,6 +20,8 @@ typedef void (^ILConverTimeSerieBlock)(ILMeasurement *measurementObject, NSError
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
+	
+	_measurementsCommonArray = [[NSMutableArray alloc] init];
 
 	NSURL *serverURL = [NSURL URLWithString:@"https://jsdemo.envdev.io/sse"];
 	EventSource *source = [EventSource eventSourceWithURL:serverURL];
@@ -38,13 +41,25 @@ typedef void (^ILConverTimeSerieBlock)(ILMeasurement *measurementObject, NSError
 				for (NSDictionary *eventDictionary in eventsArray) {
 					if (eventDictionary && [eventDictionary isKindOfClass:[NSDictionary class]]) {
 						[self convertTimeSerieFromEventDictionary:eventDictionary withBlock:^(ILMeasurement *measurementObject, NSError *errorObject) {
-							
 							if (errorObject) {
 								NSLog(@"ERROR: %@", errorObject.localizedDescription);
 							}
 							
-//							NSLog(@"measurement: %@", measurementObject);
+							[_measurementsCommonArray addObject:measurementObject];
 							
+//							NSIndexPath *newRowIndexPath = [NSIndexPath indexPathForRow:_measurementsCommonArray.count-1 inSection:0];
+//							dispatch_sync(dispatch_get_main_queue(), ^{
+//								[_measurementsTableView beginUpdates];
+//								[_measurementsTableView insertRowsAtIndexPaths:@[newRowIndexPath] withRowAnimation:UITableViewRowAnimationNone];
+//								[_measurementsTableView endUpdates];
+//								[_measurementsTableView reloadData];
+//							});
+							
+							dispatch_async(dispatch_get_main_queue(), ^{
+								[_measurementsTableView reloadData];
+							});
+							
+							NSLog(@"measurement: %@", measurementObject);
 						}];
 					} else {
 						NSLog(@"ERROR. Wrong format of event: %@", eventDictionary);
@@ -61,7 +76,6 @@ typedef void (^ILConverTimeSerieBlock)(ILMeasurement *measurementObject, NSError
 }
 
 #pragma mark - Private messages
-
 -(void) convertTimeSerieFromEventDictionary: (NSDictionary *) eventDictionary withBlock: (ILConverTimeSerieBlock) returnBlock {
 	NSArray *measurementsArray = (NSArray *) eventDictionary[@"measurements"];
 	if (measurementsArray &&
@@ -104,13 +118,11 @@ typedef void (^ILConverTimeSerieBlock)(ILMeasurement *measurementObject, NSError
 				if ((singleMeasurementArray.count >= 2) && singleMeasurementArray[1]) {
 					id valueObject = singleMeasurementArray[1];
 					if (valueObject && [valueObject isKindOfClass:[NSNumber class]]) {
-						// single number value
 						measurementObject.valueString = [((NSNumber *) valueObject) stringValue];
 					} else if (valueObject && [valueObject isKindOfClass:[NSString class]]) {
 						measurementObject.valueString = (NSString *) valueObject;
 					} else if (valueObject && [valueObject isKindOfClass:[NSArray class]]) {
 						NSArray *valueArray = (NSArray *) valueObject;
-						
 						if (valueArray.count == 2) {
 							measurementObject.valueArray = valueArray;
 						} else {
@@ -118,11 +130,13 @@ typedef void (^ILConverTimeSerieBlock)(ILMeasurement *measurementObject, NSError
 							NSError *error = [NSError errorWithDomain:errorDomainString code:101 userInfo:@{NSLocalizedDescriptionKey: @"Unexpected array"}];
 							
 							returnBlock(measurementObject, error);
+							return;
 						}
 					}
 				}
 				
 				returnBlock(measurementObject, nil);
+				return;
 			}
 		}
 	} else {
@@ -151,7 +165,56 @@ typedef void (^ILConverTimeSerieBlock)(ILMeasurement *measurementObject, NSError
 		NSError *error = [NSError errorWithDomain:errorDomainString code:102 userInfo:@{NSLocalizedDescriptionKey: @"Empty measurement"}];
 	
 		returnBlock(measurementObject, error);
+		return;
 	}
+}
+
+#pragma mark - UITableViewDataSource implementation
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+	return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+	if (_measurementsCommonArray.count > 0) {
+		return _measurementsCommonArray.count;
+	} else{
+		return 0;
+	}
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifierString forIndexPath:indexPath];
+	ILMeasurement *measurementObject = _measurementsCommonArray[indexPath.row];
+	
+	if (cell) {
+		cell.textLabel.textColor = [UIColor blackColor];
+		cell.detailTextLabel.textColor = [UIColor blackColor];
+		
+		cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", measurementObject.nameString, [measurementObject.date description]];
+		if (measurementObject.valueString != nil) {
+			cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", measurementObject.valueString, measurementObject.unitString];
+			if (measurementObject.unitString == nil) {
+				cell.detailTextLabel.textColor = [UIColor redColor];
+			}
+		} else if (measurementObject.valueArray != nil) {
+			if (measurementObject.valueArray.count >= 2) {
+				cell.detailTextLabel.text = [NSString stringWithFormat:@"%@, %@", measurementObject.valueArray[0], measurementObject.valueArray[1]];
+			} else {
+				cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", [measurementObject.valueArray description]];
+				cell.detailTextLabel.textColor = [UIColor redColor];
+			}
+		} else {
+			cell.detailTextLabel.text = @"NO VALUE";
+			cell.detailTextLabel.textColor = [UIColor redColor];
+		}
+		
+		if ((measurementObject.nameString == nil) ||
+			(measurementObject.date == nil)) {
+			cell.textLabel.textColor = [UIColor redColor];
+		}
+	}
+	
+	return cell;
 }
 
 @end
