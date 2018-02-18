@@ -1,5 +1,6 @@
 # NetronixMeasurements
-Test application for Netronix job application
+Test application for Netronix job application. It shows values from sensor in realtime.
+Red cell means data is not correct and you need to check corresponging sensor.
 
 # Environment
 * Xcode 7.3.1
@@ -7,7 +8,9 @@ Test application for Netronix job application
 
 # How to check
 * Download
+* Open NetronixMeasurements/NetronixMeasurements.xcworkspace
 * Build
+* Check
 
 # 3rd party libraries
 * https://github.com/neilco/EventSource Copyright (c) 2013 Neil Cowburn (http://github.com/neilco/) MIT License
