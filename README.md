@@ -21,3 +21,10 @@ Red cell means data is not correct and you need to check corresponging sensor.
 * Not optimized UITableView inserting (just reloadData). It can increase memory consuption
 * Not optimized errors messages. Need to use one source for error codes and messages
 * Not use l10n and i18n
+
+
+# Roadmap
+* Use single ILMeasurement initializer
+* Use single set of helpers for sanitizing and mapping JSONObject and ILMeasurement properties
+* Use queue of last 50 elements for show values in table.
+* Use DB (Realm) for storing values
