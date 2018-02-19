@@ -9,6 +9,7 @@
 #import "ViewController.h"
 
 #import <EventSource.h>
+#import "ILSanitizeHelpers.h"
 #import "ILMeasurement.h"
 
 static NSString *errorDomainString = @"test.domain.error";
@@ -83,36 +84,11 @@ typedef void (^ILConverTimeSerieBlock)(ILMeasurement *measurementObject, NSError
 		(measurementsArray.count > 0)) {
 		for (NSArray *singleMeasurementArray in measurementsArray) {
 			if ([singleMeasurementArray isKindOfClass:[NSArray class]]) {
-				ILMeasurement *measurementObject = [[ILMeasurement alloc] init];
-				
-				NSString *measurementTimeSerieIdString = eventDictionary[@"_id"];
-				if (measurementTimeSerieIdString &&
-					[measurementTimeSerieIdString isKindOfClass:[NSString class]] &&
-					(measurementTimeSerieIdString.length > 0)) {
-					measurementObject.timeSerieIdString = measurementTimeSerieIdString;
-				}
-				
-				NSString *measurementNameString = eventDictionary[@"name"];
-				if (measurementNameString &&
-					[measurementNameString isKindOfClass:[NSString class]] &&
-					(measurementNameString.length > 0)) {
-					measurementObject.nameString = measurementNameString;
-				}
-				
-				NSString *unitString = eventDictionary[@"unit"];
-				if (unitString &&
-					[unitString isKindOfClass:[NSString class]] &&
-					(unitString.length > 0)) {
-					measurementObject.unitString = unitString;
-				}
+				ILMeasurement *measurementObject = [[ILMeasurement alloc] initWithEventDictionary:eventDictionary];
 				
 				if ((singleMeasurementArray.count >= 1) && singleMeasurementArray[0]) {
 					// expect epoch date
-					NSNumber *epochDateNumber = singleMeasurementArray[0];
-					if (epochDateNumber &&
-						[epochDateNumber isKindOfClass:[NSNumber class]]) {
-						measurementObject.date = [NSDate dateWithTimeIntervalSince1970:[epochDateNumber integerValue]];
-					}
+					measurementObject.date = [ILSanitizeHelpers sanitizedDateFromValue:singleMeasurementArray[0]];
 				}
 				
 				if ((singleMeasurementArray.count >= 2) && singleMeasurementArray[1]) {
@@ -140,30 +116,9 @@ typedef void (^ILConverTimeSerieBlock)(ILMeasurement *measurementObject, NSError
 			}
 		}
 	} else {
-		ILMeasurement *measurementObject = [[ILMeasurement alloc] init];
+		ILMeasurement *measurementObject = [[ILMeasurement alloc] initWithEventDictionary:eventDictionary];
 		
-		NSString *measurementTimeSerieIdString = eventDictionary[@"_id"];
-		if (measurementTimeSerieIdString &&
-			[measurementTimeSerieIdString isKindOfClass:[NSString class]] &&
-			(measurementTimeSerieIdString.length > 0)) {
-			measurementObject.timeSerieIdString = measurementTimeSerieIdString;
-		}
-		
-		NSString *measurementNameString = eventDictionary[@"name"];
-		if (measurementNameString &&
-			[measurementNameString isKindOfClass:[NSString class]] &&
-			(measurementNameString.length > 0)) {
-			measurementObject.nameString = measurementNameString;
-		}
-		
-		NSString *unitString = eventDictionary[@"unit"];
-		if (unitString &&
-			[unitString isKindOfClass:[NSString class]] &&
-			(unitString.length > 0)) {
-			measurementObject.unitString = unitString;
-		}
 		NSError *error = [NSError errorWithDomain:errorDomainString code:102 userInfo:@{NSLocalizedDescriptionKey: @"Empty measurement"}];
-	
 		returnBlock(measurementObject, error);
 		return;
 	}

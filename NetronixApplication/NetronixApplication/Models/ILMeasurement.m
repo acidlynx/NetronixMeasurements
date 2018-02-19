@@ -7,9 +7,10 @@
 //
 
 #import "ILMeasurement.h"
+#import "ILSanitizeHelpers.h"
 
 @implementation ILMeasurement
-
+#pragma mark - initializers
 -(instancetype) init {
 	self = [super init];
 	if (self) {
@@ -24,6 +25,21 @@
 	return self;
 }
 
+-(nonnull instancetype) initWithEventDictionary: (null_unspecified NSDictionary *) eventDictionary; {
+	self = [super init];
+	if (self) {
+		self.timeSerieIdString = [ILSanitizeHelpers sanitizedStringFromValue:eventDictionary[@"_id"]];
+		self.nameString = [ILSanitizeHelpers sanitizedStringFromValue:eventDictionary[@"name"]];
+		self.unitString = [ILSanitizeHelpers sanitizedStringFromValue:eventDictionary[@"unit"]];
+		self.date = nil;
+		self.valueString = nil;
+		self.valueArray = nil;
+	}
+	
+	return self;
+}
+
+#pragma mark - inherit messages
 -(NSString *) description {
 	NSString *debugDescriptionString = [NSString stringWithFormat:@"\nILMeasurement:\nid=%@\ndate=%@\nname=%@\nunit=%@\nvalue=%@\narray=%@",
 										self.timeSerieIdString,
@@ -34,6 +50,11 @@
 										self.valueArray];
 	
 	return debugDescriptionString;
+}
+
+#pragma mark - Public messages
+-(void) setMeausrementValueWithObject: (null_unspecified id) valueObject {
+	
 }
 
 @end
