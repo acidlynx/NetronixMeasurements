@@ -10,6 +10,7 @@
 #import "ILSanitizeHelpers.h"
 
 @implementation ILMeasurement
+
 #pragma mark - initializers
 -(instancetype) init {
 	self = [super init];

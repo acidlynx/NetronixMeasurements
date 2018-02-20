@@ -1,6 +1,7 @@
 # NetronixMeasurements
 Test application for Netronix job application. It shows values from sensor in realtime.
 Red cell means data is not correct and you need to check corresponging sensor.
+[https://github.com/netronixgroup/ios-dev/blob/master/TestTask.md]{https://github.com/netronixgroup/ios-dev/blob/master/TestTask.md}
 
 # Environment
 * Xcode 7.3.1
@@ -26,5 +27,6 @@ Red cell means data is not correct and you need to check corresponging sensor.
 # Roadmap
 * ~Use single ILMeasurement initializer~
 * ~Use single set of helpers for sanitizing and mapping JSONObject and ILMeasurement properties~
-* Use queue of last 50 elements for show values in table.
+* ~Use queue of last 50 elements for show values in table.~
 * Use DB (Realm) for storing values
+* Use library for plot rendering instead of UITableView

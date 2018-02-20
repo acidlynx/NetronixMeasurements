@@ -10,6 +10,7 @@
 		7110E5093E46F1C76B8A2DF3 /* libPods-NetronixApplicationUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 239B34DE9BBF7C8553EE6ABF /* libPods-NetronixApplicationUITests.a */; };
 		7ECF495900C980627FE4EDE8 /* libPods-NetronixApplication.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 198EEC7254D042D1EAF1D116 /* libPods-NetronixApplication.a */; };
 		8C2AA090203B6D8E00695C1D /* ILSanitizeHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2AA08F203B6D8E00695C1D /* ILSanitizeHelpers.m */; };
+		8C2AA093203C35B300695C1D /* ILQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2AA092203C35B300695C1D /* ILQueue.m */; };
 		8C4A044E2038DF6700BED17A /* ILMeasurement.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C4A044C2038DF6700BED17A /* ILMeasurement.m */; };
 		8C7CF309203771160021BA9B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7CF308203771160021BA9B /* main.m */; };
 		8C7CF30C203771160021BA9B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7CF30B203771160021BA9B /* AppDelegate.m */; };
@@ -46,6 +47,8 @@
 		60B64E9538F7CF9E4706B4E7 /* Pods-NetronixApplication.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetronixApplication.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NetronixApplication/Pods-NetronixApplication.debug.xcconfig"; sourceTree = "<group>"; };
 		8C2AA08E203B6D8E00695C1D /* ILSanitizeHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILSanitizeHelpers.h; sourceTree = "<group>"; };
 		8C2AA08F203B6D8E00695C1D /* ILSanitizeHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILSanitizeHelpers.m; sourceTree = "<group>"; };
+		8C2AA091203C35B300695C1D /* ILQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILQueue.h; sourceTree = "<group>"; };
+		8C2AA092203C35B300695C1D /* ILQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILQueue.m; sourceTree = "<group>"; };
 		8C4A044C2038DF6700BED17A /* ILMeasurement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILMeasurement.m; sourceTree = "<group>"; };
 		8C4A044D2038DF6700BED17A /* ILMeasurement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILMeasurement.h; sourceTree = "<group>"; };
 		8C7CF304203771160021BA9B /* NetronixApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetronixApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,6 +120,8 @@
 			children = (
 				8C2AA08E203B6D8E00695C1D /* ILSanitizeHelpers.h */,
 				8C2AA08F203B6D8E00695C1D /* ILSanitizeHelpers.m */,
+				8C2AA091203C35B300695C1D /* ILQueue.h */,
+				8C2AA092203C35B300695C1D /* ILQueue.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -496,6 +501,7 @@
 				8C7CF30F203771160021BA9B /* ViewController.m in Sources */,
 				8C7CF30C203771160021BA9B /* AppDelegate.m in Sources */,
 				8C4A044E2038DF6700BED17A /* ILMeasurement.m in Sources */,
+				8C2AA093203C35B300695C1D /* ILQueue.m in Sources */,
 				8C7CF309203771160021BA9B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

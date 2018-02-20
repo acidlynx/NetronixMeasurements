@@ -10,8 +10,6 @@
 
 @interface ViewController : UIViewController<UITableViewDataSource, UITableViewDelegate> {
 	IBOutlet UITableView *_measurementsTableView;
-	
-	NSMutableArray *_measurementsCommonArray;
 }
 
 

@@ -11,62 +11,57 @@
 #import <EventSource.h>
 #import "ILSanitizeHelpers.h"
 #import "ILMeasurement.h"
+#import "ILQueue.h"
 
 static NSString *errorDomainString = @"test.domain.error";
 static NSString *cellIdentifierString = @"measurementTableViewCellIdentifier";
 
 typedef void (^ILConverTimeSerieBlock)(ILMeasurement *measurementObject, NSError *errorObject);
 
-@implementation ViewController
+@implementation ViewController {
+	NSMutableArray *_measurementsCommonArray;
+	ILQueue *_tableViewObjectsQueue;
+}
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	
 	_measurementsCommonArray = [[NSMutableArray alloc] init];
+	_tableViewObjectsQueue = [[ILQueue alloc] initWithCapacity:50];
 
 	NSURL *serverURL = [NSURL URLWithString:@"https://jsdemo.envdev.io/sse"];
 	EventSource *source = [EventSource eventSourceWithURL:serverURL];
 	
 	[source onMessage:^(Event *event) {
 		if ([event.data length] > 0) {
-			NSError *readingError;
-			NSArray *eventsArray = (NSArray *)[NSJSONSerialization JSONObjectWithData:[event.data dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error: &readingError];
-			
-			if (readingError) {
-				NSLog(@"Reading EventSource JSON error: %@", readingError);
-				return;
-			}
-			
-			// @INFO: we can to check it with [NSNull null], but with [NSArray class] easier
-			if (eventsArray && [eventsArray isKindOfClass:[NSArray class]] && (eventsArray.count > 0)) {
-				for (NSDictionary *eventDictionary in eventsArray) {
-					if (eventDictionary && [eventDictionary isKindOfClass:[NSDictionary class]]) {
-						[self convertTimeSerieFromEventDictionary:eventDictionary withBlock:^(ILMeasurement *measurementObject, NSError *errorObject) {
-							if (errorObject) {
-								NSLog(@"ERROR: %@", errorObject.localizedDescription);
-							}
-							
-							[_measurementsCommonArray addObject:measurementObject];
-							
-//							NSIndexPath *newRowIndexPath = [NSIndexPath indexPathForRow:_measurementsCommonArray.count-1 inSection:0];
-//							dispatch_sync(dispatch_get_main_queue(), ^{
-//								[_measurementsTableView beginUpdates];
-//								[_measurementsTableView insertRowsAtIndexPaths:@[newRowIndexPath] withRowAnimation:UITableViewRowAnimationNone];
-//								[_measurementsTableView endUpdates];
-//								[_measurementsTableView reloadData];
-//							});
-							
-							dispatch_async(dispatch_get_main_queue(), ^{
+			dispatch_async(dispatch_get_main_queue(), ^{
+				NSError *readingError;
+				NSArray *eventsArray = (NSArray *)[NSJSONSerialization JSONObjectWithData:[event.data dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error: &readingError];
+				
+				if (readingError) {
+					NSLog(@"Reading EventSource JSON error: %@", readingError);
+					return;
+				}
+				
+				// @INFO: we can to check it with [NSNull null], but with [NSArray class] easier
+				if (eventsArray && [eventsArray isKindOfClass:[NSArray class]] && (eventsArray.count > 0)) {
+					for (NSDictionary *eventDictionary in eventsArray) {
+						if (eventDictionary && [eventDictionary isKindOfClass:[NSDictionary class]]) {
+							[self convertTimeSerieFromEventDictionary:eventDictionary withBlock:^(ILMeasurement *measurementObject, NSError *errorObject) {
+								if (errorObject) {
+									NSLog(@"ERROR: %@", errorObject.localizedDescription);
+								}
+								
+//								[_measurementsCommonArray addObject:measurementObject];
+								[_tableViewObjectsQueue enqueueObject:measurementObject];
 								[_measurementsTableView reloadData];
-							});
-							
-							NSLog(@"measurement: %@", measurementObject);
-						}];
-					} else {
-						NSLog(@"ERROR. Wrong format of event: %@", eventDictionary);
+							}];
+						} else {
+							NSLog(@"ERROR. Wrong format of event: %@", eventDictionary);
+						}
 					}
 				}
-			}
+			});
 		}
 		
 	}];
@@ -116,16 +111,17 @@ typedef void (^ILConverTimeSerieBlock)(ILMeasurement *measurementObject, NSError
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	if (_measurementsCommonArray.count > 0) {
-		return _measurementsCommonArray.count;
-	} else{
+	if ([_tableViewObjectsQueue count] > 0) {
+		return [_tableViewObjectsQueue count];
+	} else {
 		return 0;
 	}
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifierString forIndexPath:indexPath];
-	ILMeasurement *measurementObject = _measurementsCommonArray[indexPath.row];
+//	ILMeasurement *measurementObject = _measurementsCommonArray[indexPath.row];
+	ILMeasurement *measurementObject = [_tableViewObjectsQueue getAllObjects][indexPath.row];
 	
 	if (cell) {
 		cell.textLabel.textColor = [UIColor blackColor];
