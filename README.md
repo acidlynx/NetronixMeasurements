@@ -16,7 +16,7 @@ Red cell means data is not correct and you need to check corresponging sensor.
 * https://github.com/neilco/EventSource Copyright (c) 2013 Neil Cowburn (http://github.com/neilco/) MIT License
 
 # Known issues
-* Some repeated code (ILMeasurement object creation)
+* ~Some repeated code (ILMeasurement object creation)~
 * No tests
 * Not optimized UITableView inserting (just reloadData). It can increase memory consuption
 * Not optimized errors messages. Need to use one source for error codes and messages
@@ -24,7 +24,7 @@ Red cell means data is not correct and you need to check corresponging sensor.
 
 
 # Roadmap
-* Use single ILMeasurement initializer
-* Use single set of helpers for sanitizing and mapping JSONObject and ILMeasurement properties
+* ~Use single ILMeasurement initializer~
+* ~Use single set of helpers for sanitizing and mapping JSONObject and ILMeasurement properties~
 * Use queue of last 50 elements for show values in table.
 * Use DB (Realm) for storing values

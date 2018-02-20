@@ -52,9 +52,4 @@
 	return debugDescriptionString;
 }
 
-#pragma mark - Public messages
--(void) setMeausrementValueWithObject: (null_unspecified id) valueObject {
-	
-}
-
 @end

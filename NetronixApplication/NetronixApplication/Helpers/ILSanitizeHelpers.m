@@ -11,10 +11,14 @@
 @implementation ILSanitizeHelpers
 
 +(NSString *)sanitizedStringFromValue:(id)rawValue {
-	if (rawValue &&
-		[rawValue isKindOfClass:[NSString class]] &&
-		(((NSString *)rawValue).length > 0)) {
-		return rawValue;
+	if (rawValue) {
+		if ([rawValue isKindOfClass:[NSString class]] && (((NSString *)rawValue).length > 0)) {
+			return rawValue;
+		} else if ([rawValue isKindOfClass:[NSNumber class]]) {
+			return [((NSNumber *) rawValue) stringValue];
+		} else {
+			return nil;
+		}
 	} else {
 		return nil;
 	}
@@ -24,6 +28,14 @@
 	if (rawValue &&
 		[rawValue isKindOfClass:[NSNumber class]]) {
 		return [NSDate dateWithTimeIntervalSince1970:[((NSNumber *)rawValue) integerValue]];
+	} else {
+		return nil;
+	}
+}
+
++(null_unspecified NSArray *) sanitizedArrayFromValue: (null_unspecified id) rawValue {
+	if (rawValue && [rawValue isKindOfClass:[NSArray class]]) {
+		return (NSArray *)rawValue;
 	} else {
 		return nil;
 	}

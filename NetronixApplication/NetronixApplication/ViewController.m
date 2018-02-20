@@ -93,22 +93,8 @@ typedef void (^ILConverTimeSerieBlock)(ILMeasurement *measurementObject, NSError
 				
 				if ((singleMeasurementArray.count >= 2) && singleMeasurementArray[1]) {
 					id valueObject = singleMeasurementArray[1];
-					if (valueObject && [valueObject isKindOfClass:[NSNumber class]]) {
-						measurementObject.valueString = [((NSNumber *) valueObject) stringValue];
-					} else if (valueObject && [valueObject isKindOfClass:[NSString class]]) {
-						measurementObject.valueString = (NSString *) valueObject;
-					} else if (valueObject && [valueObject isKindOfClass:[NSArray class]]) {
-						NSArray *valueArray = (NSArray *) valueObject;
-						if (valueArray.count == 2) {
-							measurementObject.valueArray = valueArray;
-						} else {
-							measurementObject.valueArray = valueArray;
-							NSError *error = [NSError errorWithDomain:errorDomainString code:101 userInfo:@{NSLocalizedDescriptionKey: @"Unexpected array"}];
-							
-							returnBlock(measurementObject, error);
-							return;
-						}
-					}
+					measurementObject.valueString = [ILSanitizeHelpers sanitizedStringFromValue:valueObject];
+					measurementObject.valueArray = [ILSanitizeHelpers sanitizedArrayFromValue:valueObject];
 				}
 				
 				returnBlock(measurementObject, nil);

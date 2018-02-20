@@ -12,5 +12,7 @@
 
 +(null_unspecified NSString *) sanitizedStringFromValue: (null_unspecified id) rawValue;
 +(null_unspecified NSDate *) sanitizedDateFromValue: (null_unspecified id) rawValue;
++(null_unspecified NSArray *) sanitizedArrayFromValue: (null_unspecified id) rawValue;
+
 
 @end
